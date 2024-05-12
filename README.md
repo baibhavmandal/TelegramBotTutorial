@@ -34,13 +34,13 @@ Before getting started, ensure you have the following installed:
    npm i nodemon
    ```
 2. Update your package.json file to include scripts for starting the server in development mode with Nodemon
-```
-   "scripts": {
-    ...
-    "start": "node index.js",
-    "dev": "nodemon index.js"
-  }
-```
+    ```
+       "scripts": {
+        ...
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+      }
+    ```
    
 3. Install dotenv, a module that allows you to store your bot token securely
     ```
@@ -80,50 +80,50 @@ Now, let's dive into the bot code. I've referenced the Telegram documentation wh
    ```
 4. **Bot Initialization**: In the MyBot class constructor, the bot instance is initialized by providing the bot token. Additionally, initial states are configured, including the activation of "scream" mode if applicable. Furthermore, the constructor orchestrates the setup of keyboards and the registration of handlers through the **setupKeyboards** and **registerHandlers** methods, respectively.
 
-```
-constructor(token) {
-    this.bot = new Telegraf(token);
-    this.isScreaming = false;
-    // Set keyboard
-    this.setupKeyboards();
-
-    // Register command and message handlers
-    this.registerHandlers();
-  }
-```
+    ```
+    constructor(token) {
+        this.bot = new Telegraf(token);
+        this.isScreaming = false;
+        // Set keyboard
+        this.setupKeyboards();
+    
+        // Register command and message handlers
+        this.registerHandlers();
+      }
+    ```
 5. **Setup Keyboards**: The **setupKeyboards** method creates inline keyboards using the Markup object. These keyboards include buttons for navigation and external links.
-```
-setupKeyboards() {
-    this.nextButton = Markup.button.callback("Next", "next");
-    this.backButton = Markup.button.callback("Back", "back");
-    this.urlButton = Markup.button.url(
-      "Tutorial",
-      "https://core.telegram.org/bots/api"
-    );
-    this.keyboardM1 = Markup.inlineKeyboard([this.nextButton]);
-    this.keyboardM2 = Markup.inlineKeyboard([this.backButton, this.urlButton]);
-  }
-```
+    ```
+    setupKeyboards() {
+        this.nextButton = Markup.button.callback("Next", "next");
+        this.backButton = Markup.button.callback("Back", "back");
+        this.urlButton = Markup.button.url(
+          "Tutorial",
+          "https://core.telegram.org/bots/api"
+        );
+        this.keyboardM1 = Markup.inlineKeyboard([this.nextButton]);
+        this.keyboardM2 = Markup.inlineKeyboard([this.backButton, this.urlButton]);
+      }
+    ```
 6. **Register Handlers**: Command and message handlers are registered using the **bot.command** and **bot.on** methods. These handlers define how the bot responds to user commands, messages and action.
-  ```
-  registerHandlers() {
-    // Command handlers
-    this.bot.start(this.handleStart.bind(this));
-    this.bot.help(this.handleHelp.bind(this));
-    this.bot.command("scream", this.handleScreamCommand.bind(this));
-    this.bot.command("whisper", this.handleWhisperCommand.bind(this));
-    this.bot.command("menu", this.handleMenuCommand.bind(this));
-    this.bot.command("image", this.handleImageCommand.bind(this));
-    this.bot.command("aura", this.handleAuraCommand.bind(this));
-
-    // Message handler
-    this.bot.on("text", this.handleTextMessage.bind(this));
-
-    // Action handler
-    this.bot.action("next", this.handleNextButton.bind(this));
-    this.bot.action("back", this.handleBackButton.bind(this));
-  }
-  ```
+    ```
+      registerHandlers() {
+        // Command handlers
+        this.bot.start(this.handleStart.bind(this));
+        this.bot.help(this.handleHelp.bind(this));
+        this.bot.command("scream", this.handleScreamCommand.bind(this));
+        this.bot.command("whisper", this.handleWhisperCommand.bind(this));
+        this.bot.command("menu", this.handleMenuCommand.bind(this));
+        this.bot.command("image", this.handleImageCommand.bind(this));
+        this.bot.command("aura", this.handleAuraCommand.bind(this));
+    
+        // Message handler
+        this.bot.on("text", this.handleTextMessage.bind(this));
+    
+        // Action handler
+        this.bot.action("next", this.handleNextButton.bind(this));
+        this.bot.action("back", this.handleBackButton.bind(this));
+      }
+    ```
 7. **Message Handling**: The **handleTextMessage** method echoes back the received message to the user. If the bot is in "scream" mode, it converts the message to uppercase before sending it back.
 8. **Command Handlers**: Various command handlers are defined, such as **handleStart**, **handleHelp**, **handleScreamCommand**, etc. These methods execute specific actions in response to user commands.
 9. **Action Handlers**: Action handlers are registered to handle button clicks on inline keyboards. For example, **handleNextButton** and **handleBackButton** switch between menu screens.
