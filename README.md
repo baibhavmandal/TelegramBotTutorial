@@ -129,11 +129,11 @@ Now, let's dive into the bot code. I've referenced the Telegram documentation wh
 9. **Action Handlers**: Action handlers are registered to handle button clicks on inline keyboards. For example, **handleNextButton** and **handleBackButton** switch between menu screens.
 10. **Bot Launch**: Finally, the **startPolling** method launches the bot, allowing it to listen for incoming messages and events.
 11. This part of the code is responsible for launching the Telegram bot.
-  ```
-  const botToken = process.env.BOT_TOKEN;
-  const bot = new MyBot(botToken);
-  bot.startPolling();
-  ```
+    ```
+      const botToken = process.env.BOT_TOKEN;
+      const bot = new MyBot(botToken);
+      bot.startPolling();
+    ```
 I trust this documentation serves as a helpful resource to kickstart your journey in building Telegram bots using JavaScript.
 
 You can connect with me on [LinkedIn](https://www.linkedin.com/in/baibhavmandal/) for the latest updates on Node.js code for servers or Telegram bots.
