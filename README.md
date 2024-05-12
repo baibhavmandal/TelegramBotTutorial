@@ -88,7 +88,7 @@ Now, let's dive into the bot code. I've referenced the Telegram documentation wh
     // Register command and message handlers
     this.registerHandlers();
   }
-   ```
+    ```
 5. **Setup Keyboards**: The **setupKeyboards** method creates inline keyboards using the Markup object. These keyboards include buttons for navigation and external links.
    ```
    setupKeyboards() {
