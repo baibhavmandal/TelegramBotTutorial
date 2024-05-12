@@ -35,11 +35,11 @@ Before getting started, ensure you have the following installed:
    ```
 2. Update your package.json file to include scripts for starting the server in development mode with Nodemon
    
-   `"scripts": {
+   ```"scripts": {
     ...
     "start": "node index.js",
     "dev": "nodemon index.js"
-  }`
+  }```
    
 3. Install dotenv, a module that allows you to store your bot token securely
     ```
@@ -79,7 +79,7 @@ Now, let's dive into the bot code. I've referenced the Telegram documentation wh
    ```
 4. **Bot Initialization**: In the MyBot class constructor, the bot instance is initialized by providing the bot token. Additionally, initial states are configured, including the activation of "scream" mode if applicable. Furthermore, the constructor orchestrates the setup of keyboards and the registration of handlers through the **setupKeyboards** and **registerHandlers** methods, respectively.
    
-   `constructor(token) {
+  ```constructor(token) {
     this.bot = new Telegraf(token);
     this.isScreaming = false;
     // Set keyboard
@@ -87,9 +87,9 @@ Now, let's dive into the bot code. I've referenced the Telegram documentation wh
 
     // Register command and message handlers
     this.registerHandlers();
-  }`
+  }```
 5. **Setup Keyboards**: The **setupKeyboards** method creates inline keyboards using the Markup object. These keyboards include buttons for navigation and external links.
-   `setupKeyboards() {
+   ```setupKeyboards() {
     this.nextButton = Markup.button.callback("Next", "next");
     this.backButton = Markup.button.callback("Back", "back");
     this.urlButton = Markup.button.url(
@@ -98,7 +98,7 @@ Now, let's dive into the bot code. I've referenced the Telegram documentation wh
     );
     this.keyboardM1 = Markup.inlineKeyboard([this.nextButton]);
     this.keyboardM2 = Markup.inlineKeyboard([this.backButton, this.urlButton]);
-  }`
+  }```
 6. **Register Handlers**: Command and message handlers are registered using the **bot.command** and **bot.on** methods. These handlers define how the bot responds to user commands, messages and action.
   ```
   registerHandlers() {
