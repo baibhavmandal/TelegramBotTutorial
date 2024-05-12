@@ -34,13 +34,13 @@ Before getting started, ensure you have the following installed:
    npm i nodemon
    ```
 2. Update your package.json file to include scripts for starting the server in development mode with Nodemon
-   ```
-   "scripts": {
+   
+   `"scripts": {
     ...
     "start": "node index.js",
     "dev": "nodemon index.js"
-  }
-   ```
+  }`
+   
 3. Install dotenv, a module that allows you to store your bot token securely
     ```
     npm i dotenv
@@ -78,8 +78,8 @@ Now, let's dive into the bot code. I've referenced the Telegram documentation wh
    }
    ```
 4. **Bot Initialization**: In the MyBot class constructor, the bot instance is initialized by providing the bot token. Additionally, initial states are configured, including the activation of "scream" mode if applicable. Furthermore, the constructor orchestrates the setup of keyboards and the registration of handlers through the **setupKeyboards** and **registerHandlers** methods, respectively.
-   ```
-   constructor(token) {
+   
+   `constructor(token) {
     this.bot = new Telegraf(token);
     this.isScreaming = false;
     // Set keyboard
@@ -87,8 +87,8 @@ Now, let's dive into the bot code. I've referenced the Telegram documentation wh
 
     // Register command and message handlers
     this.registerHandlers();
-  }
-    ```
+  }`
+    
 5. **Setup Keyboards**: The **setupKeyboards** method creates inline keyboards using the Markup object. These keyboards include buttons for navigation and external links.
    ```
    setupKeyboards() {
