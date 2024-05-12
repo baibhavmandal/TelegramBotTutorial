@@ -40,7 +40,7 @@ Before getting started, ensure you have the following installed:
     "start": "node index.js",
     "dev": "nodemon index.js"
   }
-    ```
+   ```
 3. Install dotenv, a module that allows you to store your bot token securely
     ```
     npm i dotenv
@@ -101,7 +101,7 @@ Now, let's dive into the bot code. I've referenced the Telegram documentation wh
     this.keyboardM1 = Markup.inlineKeyboard([this.nextButton]);
     this.keyboardM2 = Markup.inlineKeyboard([this.backButton, this.urlButton]);
   }
-  ```
+   ```
 6. **Register Handlers**: Command and message handlers are registered using the **bot.command** and **bot.on** methods. These handlers define how the bot responds to user commands, messages and action.
   ```
   registerHandlers() {
