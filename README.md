@@ -88,10 +88,8 @@ Now, let's dive into the bot code. I've referenced the Telegram documentation wh
     // Register command and message handlers
     this.registerHandlers();
   }`
-    
 5. **Setup Keyboards**: The **setupKeyboards** method creates inline keyboards using the Markup object. These keyboards include buttons for navigation and external links.
-   ```
-   setupKeyboards() {
+   `setupKeyboards() {
     this.nextButton = Markup.button.callback("Next", "next");
     this.backButton = Markup.button.callback("Back", "back");
     this.urlButton = Markup.button.url(
@@ -100,8 +98,7 @@ Now, let's dive into the bot code. I've referenced the Telegram documentation wh
     );
     this.keyboardM1 = Markup.inlineKeyboard([this.nextButton]);
     this.keyboardM2 = Markup.inlineKeyboard([this.backButton, this.urlButton]);
-  }
-   ```
+  }`
 6. **Register Handlers**: Command and message handlers are registered using the **bot.command** and **bot.on** methods. These handlers define how the bot responds to user commands, messages and action.
   ```
   registerHandlers() {
